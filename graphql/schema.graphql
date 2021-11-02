@@ -1,0 +1,47 @@
+type Product @aws_cognito_user_pools @aws_api_key {
+  id: ID!
+  name: String!
+  description: String!
+  price: Float!
+  sku: String
+  stock: Int
+}
+
+input ProductInput {
+  id: ID
+  name: String!
+  description: String!
+  price: Float!
+  sku: String
+  stock: Int
+}
+
+input UpdateProductInput {
+  id: ID!
+  name: String
+  description: String
+  price: Float
+  sku: String
+  stock: Int
+}
+
+type Query {
+  getProductById(productId: ID!): Product
+    @aws_cognito_user_pools @aws_api_key
+  listProducts: [Product]
+    @aws_cognito_user_pools @aws_api_key
+}
+
+type Mutation {
+  createProduct(product: ProductInput!): Product
+    @aws_cognito_user_pools(cognito_groups: ["Admin"])
+  deleteProduct(productId: ID!): ID
+    @aws_cognito_user_pools(cognito_groups: ["Admin"])
+  updateProduct(product: UpdateProductInput!): Product
+    @aws_cognito_user_pools(cognito_groups: ["Admin"])
+}
+
+type Subscription {
+  onCreateProduct: Product
+    @aws_subscribe(mutations: ["createProduct"])
+}
