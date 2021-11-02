@@ -1,9 +1,9 @@
-import getProductById from './getProductById'
-import createProduct from './createProduct'
-import listProducts from './listProducts'
-import deleteProduct from './deleteProduct'
-import updateProduct from './updateProduct'
-import Product from './Product'
+import getProductById from './getProductByID';
+import createProduct from './createProduct';
+import listProducts from './listProducts';
+import deleteProduct from './deleteProduct';
+import updateProduct from './updateProduct';
+import Product from './Product';
 
 type AppSyncEvent = {
   info: {

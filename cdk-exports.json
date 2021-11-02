@@ -1,1 +1,9 @@
-{}
+{
+  "UpworkTestStack": {
+    "UserPoolClientId": "7tkhanl2js577qfu0nqa9llfjf",
+    "AppSyncAPIKey": "da2-6ff27ecxpzbqzm56bobj2i2via",
+    "UserPoolId": "us-east-1_JUWZFXLSk",
+    "GraphQLAPIURL": "https://qhlqrbvn5jf7xcnt4odceixnhm.appsync-api.us-east-1.amazonaws.com/graphql",
+    "ProjectRegion": "us-east-1"
+  }
+}

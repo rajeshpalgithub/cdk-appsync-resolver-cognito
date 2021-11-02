@@ -1,2 +1,2 @@
-- Only Admit user ( cognito user Group "Admin") can add, edit , delete products
+- Only Admin user ( cognito user Group "Admin") can add, edit , delete products
 - anonymous user can get product using api key
