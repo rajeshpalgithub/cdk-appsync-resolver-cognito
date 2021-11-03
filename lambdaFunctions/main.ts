@@ -3,6 +3,7 @@ import createProduct from './createProduct';
 import listProducts from './listProducts';
 import deleteProduct from './deleteProduct';
 import updateProduct from './updateProduct';
+import rdsAllProducts from './rdsAllProducts'
 import Product from './Product';
 
 type AppSyncEvent = {
@@ -33,6 +34,8 @@ exports.handler = async (event:AppSyncEvent) => {
       return await deleteProduct(event.arguments.productId)
     case "updateProduct":
       return await updateProduct(event.arguments.product)
+    case "rdsListproduct":
+      return await rdsAllProducts()  
     default:
       return null
   }

@@ -25,11 +25,14 @@ input UpdateProductInput {
   stock: Int
 }
 
+
+
 type Query {
   getProductById(productId: ID!): Product
     @aws_cognito_user_pools @aws_api_key
   listProducts: [Product]
     @aws_cognito_user_pools @aws_api_key
+  rdsListproduct: String @aws_cognito_user_pools @aws_api_key
 }
 
 type Mutation {

@@ -24,7 +24,12 @@
     "@aws-cdk/aws-appsync": "^1.130.0",
     "@aws-cdk/aws-cognito": "^1.130.0",
     "@aws-cdk/aws-dynamodb": "^1.130.0",
+    "@aws-cdk/aws-ec2": "^1.130.0",
+    "@aws-cdk/aws-iam": "^1.130.0",
     "@aws-cdk/aws-lambda": "^1.130.0",
+    "@aws-cdk/aws-lambda-nodejs": "^1.130.0",
+    "@aws-cdk/aws-rds": "^1.130.0",
+    "@aws-cdk/aws-secretsmanager": "^1.130.0",
     "@aws-cdk/core": "1.130.0",
     "source-map-support": "^0.5.16"
   }
