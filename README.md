@@ -1,4 +1,5 @@
 - Only Admin user ( cognito user Group "Admin") can add, edit , delete products
 - anonymous user can get product using api key
-- Dynamodb Product Table
+- Dynamodb 
+- KMS
 - MySql RDS ( only db connection call)
