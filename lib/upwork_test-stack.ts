@@ -8,6 +8,8 @@ import * as lambda from '@aws-cdk/aws-lambda';
 import * as ec2 from '@aws-cdk/aws-ec2';
 import * as rds from '@aws-cdk/aws-rds';
 import * as iam from '@aws-cdk/aws-iam';
+import * as s3 from '@aws-cdk/aws-s3';
+import * as kms from '@aws-cdk/aws-kms';
 import { Credentials, StorageType } from '@aws-cdk/aws-rds';
 import { Duration } from '@aws-cdk/core';
 import { InstanceClass, InstanceType, InstanceSize } from '@aws-cdk/aws-ec2';
@@ -16,6 +18,23 @@ import { InstanceClass, InstanceType, InstanceSize } from '@aws-cdk/aws-ec2';
 export class UpworkTestStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
+
+    // KMS 
+    const targetKmsKey = new kms.Key(this, 'upworkTestBucketKey', {
+      trustAccountIdentities: true  // delegate key permissions to IAM
+    });
+    // s3
+    const bucket = new s3.Bucket(this, "upworkTestBucket",{
+      bucketName:cdk.PhysicalName.GENERATE_IF_NEEDED,
+      encryption: s3.BucketEncryption.KMS,
+      encryptionKey: targetKmsKey,
+      versioned: true
+    });
+
+    new cdk.CfnOutput(this, "BucketDomain", {
+      value: bucket.bucketWebsiteDomainName,
+    });
+
 
     //const credentail = Credentials.fromPassword('Admin',cdk.SecretValue.arguments);
     const RDS_DB_NAME = 'upworkTest';

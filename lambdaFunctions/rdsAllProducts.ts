@@ -7,6 +7,8 @@ async function rdsAllProducts(){
     let credentials = JSON.parse(sm.SecretString);
 
     //return credentials.username;
+
+    
   
     var connection = mysql.createConnection({
         host     : process.env.RDS_ENDPOINT,
